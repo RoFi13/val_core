@@ -28,7 +28,7 @@ def core_paths():
     # ue_path = f"{pure_repo_path.parents[1]}/UE".replace("\\", "/")
     ue_path = PurePath(get_parent_directory(pure_repo_path, 2), "UE")
     # cg_project_path = f"{dcc_path}/CG".replace("\\", "/")
-    cg_project_path = PurePath(get_parent_directory(pure_repo_path, 1), "CG")
+    cg_project_path = PurePath(dcc_path, "CG")
 
     # src_path = f"{repo_path}/src"
     # python_tools_path = f"{src_path}/tools"
