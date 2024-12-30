@@ -64,9 +64,10 @@ class CustomPreviewButton(QtWidgets.QLabel):
             return
 
         # Set the qLabel's current image path as the default icon
-        self.current_image_path = self.default_preview_icon
+        self.current_image_path = self.default_preview_icon.as_posix()
+        self.custom_pixmap: QPixmap = None
         # Set default image for qLabel
-        self.image_pix = QPixmap(self.default_preview_icon)
+        self.image_pix = QPixmap(self.default_preview_icon.as_posix())
         # Resize to fit qLabel
         self.resized_pix = self.image_pix.scaled(
             200, 200, QtCore.Qt.KeepAspectRatio, QtCore.Qt.FastTransformation
@@ -88,6 +89,7 @@ class CustomPreviewButton(QtWidgets.QLabel):
             return
 
         preview_pix = frame
+        self.custom_pixmap = preview_pix
         # Scale keeping aspect ratio of preview image to size of qLabel widget
         resized_preview_pix = preview_pix.scaled(
             200, 200, QtCore.Qt.KeepAspectRatio, QtCore.Qt.FastTransformation
